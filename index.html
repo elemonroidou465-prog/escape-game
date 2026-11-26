@@ -1,92 +1,204 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>apprentissage de développement web</title>
-    <link rel="icon" href="images/logo-icone.svg">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header class="enetete">
-        <span class="logo">
-            <img src="images/logo-horizontal.svg" alt="Logo BugEscape">
-        </span>
-        <nav class="menu">
-            <a href="index.html" class="nav-bar">Accueil</a>
-            <a href="niveau.html" class="nav-bar">Niveau</a>
-            <a href="cours.html" class="nav-bar">Cours</a>
-            <a href="evaluation.html" class="nav-bar">Evaluation</a>
-        </nav>
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BugEscape</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- EN-TÊTE : logo + slogan, et menu -->
+    <header>
+      <div class="logo">
+        <img src="images/logo-horizontal.svg" alt="Logo BugEscape" />
+      </div>
+
+      <nav>
+        <a href="index.html" class="actif">Accueil</a>
+        <a href="niveau.html">Niveau</a>
+        <a href="cours.html">Cours</a>
+        <a href="evaluation.html">Évaluation</a>
+      </nav>
     </header>
-    <main>
-        <section class="hero">
-            <h1>Jeux d'évasion pour apprendre le développement web</h1>
-            <p class="intro">
-                Corrigez du vrai code, répondez aux quiz et ouvrez les portes une par une.
-                À la fin saurez où vous êtes en HTML, CSS et JavaScript
-            </p>
-            <a href="niveau.html" class="bouton">
-                <button>Commencez l'aventure</button>
-            </a>
-        </section>
-        <section id="fonctionnement">
-            <h2>Comment ça marche !</h2>
-            <ol class="etapes">
-                <li class="carte">
-                    <h3>Choisissez votre niveau</h3>
-                    <p>Débutant ou intermédiaire le parcours s'adapte à votre réponse</p>
-                </li>
-                <li class="carte">
-                    <h3>Apprenez ou passez à l'épreuve !</h3>
-                    <p>Les débutants suivent d'abord les cours. Les intermédiaires vont directement aux salles</p>
-                </li>
-                <li class="carte">
-                    <h3>Ouvrez les portes </h3>
-                    <p>Un quiz, puis un code erroné à déboguer.Gardez vos vies pour sortir de la salle.</p>
-                </li>
-            </ol>
-        </section>
-        <section id="salles">
-            <h2>Les six salles</h2>
-            <div class="salles">
-                <article class="carte">
-                    <span>HTML</span>
-                    <h3>Salle 1</h3>
-                    <p>Chapitre 1 : La structure de base</p>
-                </article>
-                <article class="carte">
-                    <span>HTML</span>
-                    <h3>Salle 2</h3>
-                    <p>Chapitre 2 : Formulaires, listes, sémantique</p>
-                </article>
-                <article class="carte">
-                    <span>CSS</span>
-                    <h3>Salle 3</h3>
-                    <p>Chapitre 1 : Les sélecteurs css, couleurs, texte</p>
-                </article>
-                <article class="carte">
-                    <span>CSS</span>
-                    <h3>Salle 4</h3>
-                    <p>Chapitre 2 : La mise en page, flexbox</p>
-                </article>
-                <article class="carte">
-                    <span>JavaScript</span>
-                    <h3>Salle 5</h3>
-                    <p>Chapitre 1 : Les variables en JS, conditions</p>
-                </article>
-                <article class="carte">
-                    <span>JavaScript</span>
-                    <h3>Salle 6</h3>
-                    <p>Chapitre 2 : Les fonctions, DOM, événements</p>
-                </article>
+
+    <!-- SECTION D'ACCUEIL : texte à gauche, aperçu du code à droite -->
+    <section class="accueil">
+      <div class="accueil-texte">
+        <p class="surtitre">HTML · CSS · JAVASCRIPT</p>
+        <h1>
+          Jeux d'évasion pour apprendre le
+          <span class="or">développement web</span>
+        </h1>
+        <p>
+          Corrigez du vrai code, répondez aux quiz et ouvrez les portes une par
+          une. À la fin, vous saurez où vous en êtes en HTML, CSS et JavaScript.
+        </p>
+        <a href="niveau.html" class="bouton">Commencez l'aventure →</a>
+      </div>
+
+      <div class="apercu">
+        <p class="nom-fichier">● ● ● salle-1.html</p>
+
+        <div class="code">
+          <p>1 &nbsp; &lt;body&gt;</p>
+          <p class="erreur">
+            2 &nbsp;&nbsp;&nbsp; &lt;h1&gt;Bienvenue&lt;/h2&gt;
+            <span class="etiquette">ERREUR</span>
+          </p>
+          <p>3 &nbsp;&nbsp;&nbsp; &lt;p&gt;Ouvre la porte&lt;/p&gt;</p>
+          <p>4 &nbsp; &lt;/body&gt;</p>
+        </div>
+
+        <div class="etat">
+          <span>Vies ❤️❤️❤️</span>
+          <span>🔒 Porte verrouillée</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMENT ÇA MARCHE -->
+    <section class="etapes">
+      <h2>Comment ça marche !</h2>
+      <div class="cartes">
+        <div class="carte">
+          <span class="numero">1</span>
+          <h3>Choisissez votre niveau</h3>
+          <p>
+            Débutant ou intermédiaire : le parcours s'adapte à votre réponse.
+          </p>
+        </div>
+        <div class="carte">
+          <span class="numero">2</span>
+          <h3>Apprenez ou passez à l'épreuve !</h3>
+          <p>
+            Les débutants suivent d'abord les cours. Les intermédiaires vont
+            directement aux salles.
+          </p>
+        </div>
+        <div class="carte">
+          <span class="numero">3</span>
+          <h3>Ouvrez les portes</h3>
+          <p>
+            Un quiz, puis un code erroné à déboguer. Gardez vos vies pour sortir
+            de la salle.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- LES SIX SALLES : trois colonnes -->
+    <section class="salles">
+      <h2>Les six salles</h2>
+
+      <div class="colonnes">
+        <div class="colonne">
+          <h3 class="langage html">● HTML</h3>
+          <div class="salle html">
+            <span class="numero">1</span>
+            <div>
+              <strong>Salle 1</strong>
+              <p>Chapitre 1 : La structure de base</p>
             </div>
-        </section>
-    </main>
-</body>
-<footer class="pied">
-    <p>
-        Projet fait en HTML, CSS et JavaScript, sans serveur. Réaliser par Roïdou Elemmon et Pascal Alihonou
-    </p>
-</footer>
+          </div>
+          <div class="salle html">
+            <span class="numero">2</span>
+            <div>
+              <strong>Salle 2</strong>
+              <p>Chapitre 2 : Formulaires, listes, sémantique</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="colonne">
+          <h3 class="langage css">● CSS</h3>
+          <div class="salle css">
+            <span class="numero">3</span>
+            <div>
+              <strong>Salle 3</strong>
+              <p>Chapitre 1 : Les sélecteurs CSS, couleurs, texte</p>
+            </div>
+          </div>
+          <div class="salle css">
+            <span class="numero">4</span>
+            <div>
+              <strong>Salle 4</strong>
+              <p>Chapitre 2 : La mise en page, Flexbox</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="colonne">
+          <h3 class="langage js">● JAVASCRIPT</h3>
+          <div class="salle js">
+            <span class="numero">5</span>
+            <div>
+              <strong>Salle 5</strong>
+              <p>Chapitre 1 : Les variables en JS, conditions</p>
+            </div>
+          </div>
+          <div class="salle js">
+            <span class="numero">6</span>
+            <div>
+              <strong>Salle 6</strong>
+              <p>Chapitre 2 : Les fonctions, DOM, événements</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PIED DE PAGE -->
+    <footer>
+      <div class="pied-haut">
+        <div class="pied-marque">
+          <h3>Bug<span class="or">Escape</span></h3>
+          <strong>Trouve l'erreur. Ouvre la porte.</strong>
+          <p>
+            Un jeu d'évasion pour apprendre HTML, CSS et JavaScript en
+            corrigeant du vrai code.
+          </p>
+          <p>
+            <span class="pastille">HTML</span>
+            <span class="pastille">CSS</span>
+            <span class="pastille">JavaScript</span>
+          </p>
+        </div>
+
+        <div class="pied-nav">
+          <h4>NAVIGATION</h4>
+          <a href="index.html">Accueil</a>
+          <a href="niveau.html">Niveau</a>
+          <a href="cours.html">Cours</a>
+          <a href="evaluation.html">Évaluation</a>
+        </div>
+
+        <div class="pied-contact">
+          <h4>CONTACT</h4>
+          <div class="cartes-contact">
+            <div class="carte-contact">
+              <strong>Roïdou Elemmon</strong>
+              <a href="mailto:elemonroidou465@gmail.com">✉ elemonroidou465@gmail.com</a>
+              <a href="https://wa.me/22942891243"
+                >💬 WhatsApp : 22942891243</a
+              >
+            </div>
+            <div class="carte-contact">
+              <strong>Pascal Alihonou</strong>
+              <a href="mailto:pascalcharo335@gmail.com">✉ pascalcharo335@gmail.com</a>
+              <a href="https://wa.me/22955789122"
+                >💬 WhatsApp : 22955789122</a
+              >
+            </div>
+          </div>
+          <a href="LIEN_GITHUB">Code source : LIEN_GITHUB</a>
+        </div>
+      </div>
+
+      <p class="pied-bas">
+        © 2026 BugEscape · Réalisé par <strong>Roïdou ELEMON</strong> et
+        <strong>Pascal ALIHONOU</strong> · Projet fait en HTML, CSS et
+        JavaScript, sans serveur.
+      </p>
+    </footer>
+  </body>
 </html>
