@@ -1,155 +1,135 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Évaluation - BugEscape</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="evaluation.css">
-   <script src="script.js">defer </script>
-</head>
-
-<body>
-
-  <header class="entete">
-
-    <a href="index.html" class="logo">
-      <div class="logo-carre">&lt;/&gt;</div>
-      <div>
-        <div class="logo-nom">Bug<span>Escape</span></div>
-        <div class="logo-slogan">Trouve l'erreur. Ouvre la porte.</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Évaluation – BugEscape</title>
+    <link rel="stylesheet" href="evaluation.css" />
+    <script src="evaluation.js" defer></script>
+  </head>
+  <body>
+    <!-- EN-TÊTE : le lien actif est maintenant "Évaluation" -->
+    <header>
+      <div class="logo">
+        <img src="images/logo-horizontal.svg" alt="BugEscape" />
       </div>
-    </a>
+      <nav>
+        <a href="index.html">Accueil</a>
+        <a href="niveau.html">Niveau</a>
+        <a href="cours.html">Cours</a>
+        <a href="evaluation.html" class="actif">Évaluation</a>
+      </nav>
+    </header>
 
-    <nav class="menu">
-      <a href="index.html">Accueil</a>
-      <a href="niveau.html">Niveau</a>
-      <a href="cours.html">Cours</a>
-      <a href="evaluation.html" class="page-actuelle">Évaluation</a>
-    </nav>
-
-  </header>
-
-  <section class="bandeau">
-    <div class="contenu bandeau-ligne">
-
+    <!-- BANDEAU : nom de la salle à gauche, vies à droite -->
+    <section class="bandeau">
       <div>
-        <p class="salle-info" id="salle-info">SALLE 1 · HTML · CHAPITRE 1</p>
-        <h1 id="salle-titre">La structure de base</h1>
+        <p class="surtitre" id="sous-titre-salle">
+          SALLE 1 · HTML · CHAPITRE 1
+        </p>
+        <h1 id="titre-salle">La structure de base</h1>
       </div>
 
-      <div class="vies">
+      <div class="vies-boite">
         <div>
-          <p class="vies-mot">VIES</p>
-          <p class="vies-nombre" id="vies-nombre">3 sur 3</p>
+          <small>VIES</small><br />
+          <strong id="vies-texte">3 sur 3</strong>
         </div>
-        <div class="coeurs" id="coeurs">
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <main class="contenu zone-jeu">
-
-    <div class="haut">
-
-      <div class="fenetre-code">
-        <div class="fenetre-barre">
-          <span class="rond"></span>
-          <span class="rond"></span>
-          <span class="rond"></span>
-          <span class="nom-fichier" id="nom-fichier">salle-1.html</span>
-          <span class="titre-code">LE CODE À CORRIGER</span>
-        </div>
-
-        <div id="code">
+        <div id="vies">
+          <span class="coeur">❤️</span>
+          <span class="coeur">❤️</span>
+          <span class="coeur">❤️</span>
         </div>
       </div>
+    </section>
 
-      <div class="colonne-droite">
-
-        <div class="boite-porte">
-
-          <svg id="porte-fermee" width="140" height="160" viewBox="0 0 140 160">
-            <path d="M5 160 V65 A65 65 0 0 1 135 65 V160 Z" fill="#2a2c63"/>
-            <path d="M15 160 V65 A55 55 0 0 1 125 65 V160 Z" fill="#4338ca"/>
-            <path d="M28 160 V68 A42 42 0 0 1 112 68 V160" fill="none" stroke="#6d63e0" stroke-width="2"/>
-            <g id="cadenas">
-              <circle cx="70" cy="88" r="17" fill="#f5b02e" id="porte-rond"/>
-              <rect x="62" y="86" width="16" height="13" rx="2" fill="#14152e"/>
-              <path id="anse" d="M65 86 V82 A5 5 0 0 1 75 82 V86" fill="none" stroke="#14152e" stroke-width="3"/>
-            </g>
-            <circle cx="113" cy="120" r="4" fill="#f5b02e"/>
-          </svg>
-
-          <svg id="porte-ouverte" width="140" height="160" viewBox="0 0 140 160" style="display:none">
-            <path d="M5 160 V65 A65 65 0 0 1 135 65 V160 Z" fill="#2a2c63"/>
-            <path d="M15 160 V65 A55 55 0 0 1 125 65 V160 Z" fill="#f5b02e"/>
-            <path id="battant" d="M15 160 V65 A55 55 0 0 1 60 12 V150 Z" fill="#4338ca"/>
-            <circle cx="50" cy="95" r="4" fill="#f5b02e"/>
-            <path d="M85 88 H112 M102 78 L112 88 L102 98" fill="none" stroke="#14152e" stroke-width="4"/>
-          </svg>
-
-          <p class="porte-texte" id="porte-texte">Porte verrouillée</p>
-        </div>
-
-        <div class="message" id="message">
-          <p class="message-titre" id="message-titre">Ta mission</p>
-          <p class="message-texte" id="message-texte">Trouve l'erreur dans le code, puis choisis la bonne correction pour ouvrir la porte. Attention : une mauvaise réponse te coûte une vie.</p>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="boite-reponses">
-      <p class="reponses-titre">LES RÉPONSES · CHOISIS LA BONNE CORRECTION</p>
-
-      <div class="reponses">
-        <button class="reponse" id="bouton-A" onclick="choisir('A')">
-          <span class="lettre">A</span>
-          <span class="reponse-texte" id="texte-A"></span>
-          <span class="signe" id="signe-A"></span>
-        </button>
-
-        <button class="reponse" id="bouton-B" onclick="choisir('B')">
-          <span class="lettre">B</span>
-          <span class="reponse-texte" id="texte-B"></span>
-          <span class="signe" id="signe-B"></span>
-        </button>
-      </div>
-
-      <div class="boutons-bas">
-        <button class="bouton-recommencer" id="bouton-recommencer" onclick="recommencer()">↺ Recommencer</button>
-        <button class="bouton-suivant" id="bouton-suivant" onclick="salleSuivante()" style="display:none">Salle suivante →</button>
-      </div>
-    </div>
-
-  </main>
-
-  <footer class="pied">
-    <div class="contenu">
-
-      <div class="pied-haut">
-
-        <div class="pied-marque">
-          <a href="index.html" class="logo">
-            <div class="logo-carre">&lt;/&gt;</div>
-            <div class="logo-nom blanc">Bug<span>Escape</span></div>
-          </a>
-          <p class="pied-slogan">Trouve l'erreur. Ouvre la porte.</p>
-          <p class="pied-texte">Un jeu d'évasion pour apprendre HTML, CSS et JavaScript en corrigeant du vrai code.</p>
-          <div class="pastilles">
-            <span>HTML</span>
-            <span>CSS</span>
-            <span>JavaScript</span>
+    <!-- ZONE DE JEU -->
+    <section class="evaluation">
+      <div class="jeu">
+        <!-- Le code à corriger -->
+        <div class="fenetre-code">
+          <p class="nom-fichier">
+            ● ● ● <span id="nom-fichier">salle-1.html</span>
+          </p>
+          <div class="code" id="code">
+            <p>1 &nbsp; &lt;body&gt;</p>
+            <p class="erreur" id="ligne-erreur">
+              2 &nbsp;&nbsp;&nbsp; &lt;h1&gt;Bonjour&lt;/h2&gt;
+              <span class="etiquette" id="etiquette">ERREUR</span>
+            </p>
+            <p>
+              3 &nbsp;&nbsp;&nbsp; &lt;p&gt;Bienvenue dans la salle 1&lt;/p&gt;
+            </p>
+            <p>4 &nbsp; &lt;/body&gt;</p>
           </div>
         </div>
 
-        <div class="pied-navigation">
-          <p class="pied-titre">NAVIGATION</p>
+        <!-- Côté droit : la porte et le message -->
+        <div class="cote-droit">
+          <div class="porte-boite">
+            <div class="porte" id="porte">🔒</div>
+            <p id="etat-porte">Porte verrouillée</p>
+          </div>
+
+          <div class="message" id="message">
+            <h3 id="message-titre">Ta mission</h3>
+            <p id="message-texte">
+              Trouve l'erreur dans le code, puis choisis la bonne correction
+              pour ouvrir la porte. Attention : une mauvaise réponse te coûte
+              une vie.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Les réponses -->
+      <div class="reponses-boite">
+        <p class="titre-reponses">LES RÉPONSES · CHOISIS LA BONNE CORRECTION</p>
+
+        <div class="liste-reponses">
+          <button class="reponse" id="reponse-a">
+            <span class="lettre">A</span>
+            <span
+              >Remplacer <code>&lt;/h2&gt;</code> par
+              <code>&lt;/h1&gt;</code></span
+            >
+          </button>
+          <button class="reponse" id="reponse-b">
+            <span class="lettre">B</span>
+            <span>Supprimer la balise <code>&lt;body&gt;</code></span>
+          </button>
+        </div>
+
+        <div class="boutons">
+          <button class="btn-recommencer" id="btn-recommencer">
+            ↻ Recommencer
+          </button>
+          <button class="btn-suivant" id="btn-suivant" hidden>
+            Salle suivante →
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PIED DE PAGE : identique à index.html -->
+    <footer>
+      <div class="pied-haut">
+        <div class="pied-marque">
+          <h3>Bug<span class="or">Escape</span></h3>
+          <strong>Trouve l'erreur. Ouvre la porte.</strong>
+          <p>
+            Un jeu d'évasion pour apprendre HTML, CSS et JavaScript en
+            corrigeant du vrai code.
+          </p>
+          <p>
+            <span class="pastille">HTML</span>
+            <span class="pastille">CSS</span>
+            <span class="pastille">JavaScript</span>
+          </p>
+        </div>
+
+        <div class="pied-nav">
+          <h4>NAVIGATION</h4>
           <a href="index.html">Accueil</a>
           <a href="niveau.html">Niveau</a>
           <a href="cours.html">Cours</a>
@@ -157,39 +137,32 @@
         </div>
 
         <div class="pied-contact">
-          <p class="pied-titre">CONTACT</p>
-
-          <div class="cartes">
-            <div class="carte">
-              <h4>Roïdou Elemmon</h4>
-             <a href="mailto:elemonroidou465@gmail.com">✉ elemonroidou465@gmail.com</a>
+          <h4>CONTACT</h4>
+          <div class="cartes-contact">
+            <div class="carte-contact">
+              <strong>Roïdou ELEMON</strong>
+              <a href="mailto:elemonroidou465@gmail.com">✉ elemonroidou465@gmail.com</a>
               <a href="https://wa.me/22942891243"
-                >💬 WhatsApp : 22942891243</a>
+                >💬 WhatsApp : 22942891243</a
+              >
             </div>
-
-            <div class="carte">
-              <h4>Pascal Alihonou</h4>
+            <div class="carte-contact">
+              <strong>Pascal Alihonou</strong>
               <a href="mailto:pascalcharo335@gmail.com">✉ pascalcharo335@gmail.com</a>
               <a href="https://wa.me/22955789122"
                 >💬 WhatsApp : 22955789122</a
               >
             </div>
           </div>
-
-          <a href="#" class="lien-code">Code source : [lien du dépôt GitHub]</a>
+          <a href="LIEN_GITHUB">Code source : LIEN_GITHUB</a>
         </div>
-
       </div>
 
-      <div class="pied-bas">
-        <p>© 2026 BugEscape · Réalisé par <b>Roïdou Elemmon</b> et <b>Pascal Alihonou</b></p>
-        <p>Projet fait en HTML, CSS et JavaScript, sans serveur.</p>
-      </div>
-
-    </div>
-  </footer>
-
- 
-
-</body>
+      <p class="pied-bas">
+        © 2026 BugEscape · Réalisé par <strong>Roïdou ELEMON</strong> et
+        <strong>Pascal ALIHONOU</strong> · Projet fait en HTML, CSS et
+        JavaScript, sans serveur.
+      </p>
+    </footer>
+  </body>
 </html>
