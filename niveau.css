@@ -1,1 +1,282 @@
 
+:root {
+  --nuit: #14152e;
+  --nuit-2: #1d1f45;
+  --indigo: #4338ca;
+  --or: #f5b02e;
+  --fond: #f6f7fb;
+  --gris: #5b6078;
+  --bordure: #e3e5f0;
+  --clair: #eef0fb;
+  --jaune-pale: #fdf0c8;
+  --brun: #8a4b0a;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  background: var(--fond);
+  color: var(--nuit);
+  line-height: 1.5;
+}
+
+a { color: inherit; text-decoration: none; }
+code, .mono { font-family: "JetBrains Mono", ui-monospace, monospace; }
+:focus-visible { outline: 3px solid var(--or); outline-offset: 3px; }
+
+.conteneur { max-width: 1100px; margin: 0 auto; }
+
+/* ===== En-tête ===== */
+.entete {
+  background: #fff;
+  border-bottom: 1px solid var(--bordure);
+  padding: 14px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.logo { display: flex; align-items: center; gap: 14px; }
+.logo svg { width: 44px; height: 44px; flex: none; }
+.logo-nom { font-weight: 800; font-size: 20px; line-height: 1.1; }
+.logo-nom span { color: var(--indigo); }
+.logo-slogan { font-size: 10px; color: var(--gris); }
+
+.menu {
+  display: flex;
+  gap: 4px;
+  background: var(--nuit);
+  padding: 6px;
+  border-radius: 999px;
+}
+.menu a {
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 9px 20px;
+  border-radius: 999px;
+}
+.menu a:hover { background: var(--nuit-2); }
+.menu a.actif { background: var(--or); color: var(--nuit); font-weight: 700; }
+
+
+.bouton {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 24px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 14px;
+}
+.bouton svg { width: 16px; height: 16px; }
+.bouton-or { background: var(--or); color: var(--nuit); }
+.bouton-indigo { background: var(--indigo); color: #fff; }
+.bouton:hover { filter: brightness(1.08); }
+
+/* ===== Bandeau titre ===== */
+.titre-page {
+  background: var(--nuit);
+  color: #fff;
+  padding: 72px 48px;
+}
+.titre-page .conteneur {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+.titre-texte { flex: 1 1 420px; max-width: 560px; }
+.etape {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--or);
+  margin-bottom: 16px;
+}
+.titre-page h1 { font-size: 40px; font-weight: 800; line-height: 1.15; margin-bottom: 16px; }
+.titre-page h1 span { color: var(--or); }
+.titre-page p { color: #c9cce3; font-size: 15px; }
+
+.reperes {
+  flex: 1 1 380px;
+  max-width: 520px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.repere {
+  flex: 1 1 200px;
+  background: var(--nuit-2);
+  border: 1px solid #2b2e5c;
+  border-radius: 16px;
+  padding: 18px 22px;
+}
+.repere:last-child { flex-basis: 100%; }
+.repere strong { display: block; color: var(--or); font-size: 28px; font-weight: 800; line-height: 1.2; }
+.repere span { font-size: 12px; color: #c9cce3; }
+
+/* ===== Choix du niveau ===== */
+.choix { padding: 48px 48px 72px; }
+.cartes { display: flex; flex-wrap: wrap; gap: 24px; }
+.carte {
+  flex: 1 1 440px;
+  background: #fff;
+  border: 1px solid var(--bordure);
+  border-radius: 22px;
+  padding: 36px;
+}
+.carte-icone {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  display: grid; place-items: center;
+  margin-bottom: 18px;
+}
+.carte-icone svg { width: 22px; height: 22px; }
+.carte-debutant .carte-icone { background: var(--indigo); color: #fff; }
+.carte-inter .carte-icone { background: var(--or); color: var(--nuit); }
+
+.carte-niveau {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.carte-debutant .carte-niveau { color: var(--indigo); }
+.carte-inter .carte-niveau { color: var(--brun); }
+
+.carte h2 { font-size: 24px; font-weight: 800; margin-bottom: 8px; }
+.carte-intro { font-size: 13px; color: var(--gris); margin-bottom: 22px; }
+
+.points { list-style: none; display: grid; gap: 12px; margin-bottom: 28px; }
+.points li { display: flex; align-items: center; gap: 12px; font-size: 13px; }
+.points svg { width: 18px; height: 18px; flex: none; }
+.carte-debutant .points svg { color: var(--indigo); }
+.carte-inter .points svg { color: var(--brun); }
+
+.conseil {
+  margin-top: 24px;
+  background: var(--clair);
+  border: 1px solid var(--bordure);
+  border-radius: 18px;
+  padding: 24px 28px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.conseil-icone {
+  width: 44px; height: 44px; flex: none;
+  border-radius: 50%;
+  background: var(--or);
+  color: var(--nuit);
+  display: grid; place-items: center;
+}
+.conseil-icone svg { width: 20px; height: 20px; }
+.conseil strong { display: block; font-size: 15px; }
+.conseil p { font-size: 13px; color: var(--gris); }
+
+.parcours {
+  background: #fff;
+  border-top: 1px solid var(--bordure);
+  padding: 56px 48px 64px;
+}
+.parcours h2 { font-size: 24px; font-weight: 800; margin-bottom: 28px; }
+.ligne-parcours { margin-bottom: 28px; }
+.ligne-parcours:last-child { margin-bottom: 0; }
+.parcours-niveau {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.ligne-debutant .parcours-niveau { color: var(--indigo); }
+.ligne-inter .parcours-niveau { color: var(--brun); }
+
+.etapes { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; list-style: none; }
+.etapes li { font-size: 12px; font-weight: 500; padding: 9px 16px; border-radius: 999px; }
+.etapes .cours { background: var(--clair); color: #312e81; }
+.etapes .quiz { background: var(--jaune-pale); color: var(--brun); }
+.etapes .final { background: var(--nuit); color: #fff; font-weight: 700; }
+.etapes .fleche { padding: 0; color: var(--gris); background: none; }
+
+/* ===== Pied de page ===== */
+.pied { background: var(--nuit); color: #c9cce3; padding: 56px 48px 28px; }
+.pied-haut { display: flex; flex-wrap: wrap; gap: 48px; margin-bottom: 36px; }
+.pied-marque { flex: 1 1 280px; max-width: 340px; }
+.pied-marque .logo-nom { color: #fff; }
+.pied-marque .logo-nom span { color: var(--or); }
+.pied-marque .logo { margin-bottom: 18px; }
+.pied-marque strong { display: block; color: #fff; font-size: 13px; margin-bottom: 8px; }
+.pied-marque p { font-size: 12px; margin-bottom: 14px; }
+.badges { display: flex; gap: 8px; flex-wrap: wrap; }
+.badges span {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  padding: 5px 12px;
+  border: 1px solid #2b2e5c;
+  background: var(--nuit-2);
+  border-radius: 999px;
+  color: #fff;
+}
+.pied h3 {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--or);
+  margin-bottom: 14px;
+}
+.pied-nav { flex: 0 1 140px; }
+.pied-nav a { display: block; font-size: 12px; margin-bottom: 10px; }
+.pied-nav a:hover { color: #fff; }
+.pied-contact { flex: 1 1 360px; }
+.contacts { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 16px; }
+.contact-carte {
+  flex: 1 1 200px;
+  background: var(--nuit-2);
+  border: 1px solid #2b2e5c;
+  border-radius: 10px;
+  padding: 16px 18px;
+  font-size: 10px;
+}
+.contact-carte strong { display: block; color: #fff; font-size: 13px; margin-bottom: 10px; }
+.contact-carte span { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.pied svg.pic { width: 14px; height: 14px; color: var(--or); flex: none; }
+.source { display: flex; align-items: center; gap: 10px; font-size: 12px; }
+.pied-bas {
+  border-top: 1px solid #2b2e5c;
+  padding-top: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 11px;
+}
+.pied-bas b { color: #fff; }
+
+/*  Mobile  */
+@media (max-width: 640px) {
+  .entete { padding: 14px 20px; }
+  .menu { width: 100%; justify-content: space-between; }
+  .menu a { padding: 9px 12px; }
+  .titre-page, .choix, .parcours, .pied { padding-left: 20px; padding-right: 20px; }
+  .titre-page h1 { font-size: 32px; }
+  .carte { padding: 26px; }
+}
+.points {
+    color:rgba(0, 0, 0, 0.801);
+}
+
+
+
+
+
+
+
+
+
