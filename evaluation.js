@@ -1,427 +1,258 @@
-
-
+// ===== 1. LES DONNÉES : les 6 salles =====
+// Chaque salle est un objet { nom: valeur }, un peu comme une struct en C++.
+// Les contenus des salles 2 à 6 sont des exemples : remplacez-les par les vôtres.
 const salles = [
-
   {
-    langage: "HTML",
-    chapitre: 1,
+    sousTitre: "SALLE 1 · HTML · CHAPITRE 1",
     titre: "La structure de base",
     fichier: "salle-1.html",
-    lignes: [
-      '<span class="balise">&lt;body&gt;</span>',
-      '  <span class="balise">&lt;h1&gt;</span>Bonjour<span class="orange">&lt;/h2&gt;</span>',
-      '  <span class="balise">&lt;p&gt;</span>Bienvenue dans la salle 1<span class="balise">&lt;/p&gt;</span>',
-      '<span class="balise">&lt;/body&gt;</span>'
-    ],
-    ligneErreur: 2,
-    ligneCorrigee: '  <span class="balise">&lt;h1&gt;</span>Bonjour<span class="balise">&lt;/h1&gt;</span>',
-    texteA: 'Remplacer <code>&lt;/h2&gt;</code> par <code>&lt;/h1&gt;</code>',
-    texteB: 'Supprimer la balise <code>&lt;body&gt;</code>',
-    bonneReponse: "A",
-    explication: 'Une balise fermante doit correspondre à la balise ouvrante : <code>&lt;h1&gt;</code> se ferme avec <code>&lt;/h1&gt;</code>.'
+    code: ["<body>", "  <h1>Bonjour</h2>", "  <p>Bienvenue dans la salle 1</p>", "</body>"],
+    ligneErreur: 1,                       // la ligne fautive (on compte à partir de 0)
+    correction: "  <h1>Bonjour</h1>",
+    reponseA: "Remplacer <code>&lt;/h2&gt;</code> par <code>&lt;/h1&gt;</code>",
+    reponseB: "Supprimer la balise <code>&lt;body&gt;</code>",
+    bonne: "A",
+    explication: "Une balise fermante doit correspondre à la balise ouvrante : <h1> se ferme avec </h1>."
   },
-
-
   {
-    langage: "HTML",
-    chapitre: 2,
+    sousTitre: "SALLE 2 · HTML · CHAPITRE 2",
     titre: "Formulaires, listes, sémantique",
     fichier: "salle-2.html",
-    lignes: [
-      '<span class="balise">&lt;ul&gt;</span>',
-      '  <span class="balise">&lt;li&gt;</span>Pomme<span class="balise">&lt;/li&gt;</span>',
-      '  <span class="balise">&lt;li&gt;</span>Mangue<span class="balise">&lt;/li&gt;</span>',
-      '<span class="orange">&lt;/ol&gt;</span>'
-    ],
-    ligneErreur: 4,
-    ligneCorrigee: '<span class="balise">&lt;/ul&gt;</span>',
-    texteA: 'Remplacer <code>&lt;li&gt;</code> par <code>&lt;p&gt;</code>',
-    texteB: 'Remplacer <code>&lt;/ol&gt;</code> par <code>&lt;/ul&gt;</code>',
-    bonneReponse: "B",
-    explication: 'La liste commence avec <code>&lt;ul&gt;</code>, elle doit donc finir avec <code>&lt;/ul&gt;</code> et pas avec <code>&lt;/ol&gt;</code>.'
+    code: ["<ul>", "  <li>Pomme</p>", "  <li>Mangue</li>", "</ul>"],
+    ligneErreur: 1,
+    correction: "  <li>Pomme</li>",
+    reponseA: "Remplacer <code>&lt;ul&gt;</code> par <code>&lt;p&gt;</code>",
+    reponseB: "Remplacer <code>&lt;/p&gt;</code> par <code>&lt;/li&gt;</code>",
+    bonne: "B",
+    explication: "Un élément de liste s'ouvre avec <li> et se ferme avec </li>."
   },
-
   {
-    langage: "CSS",
-    chapitre: 1,
+    sousTitre: "SALLE 3 · CSS · CHAPITRE 1",
     titre: "Les sélecteurs CSS, couleurs, texte",
-    fichier: "salle-3.css",
-    lignes: [
-      '<span class="balise">.titre</span> {',
-      '  color: <span class="orange">#14152e</span>',
-      '  font-size: <span class="rose">24px</span>;',
-      '}'
-    ],
-    ligneErreur: 2,
-    ligneCorrigee: '  color: <span class="rose">#14152e</span>;',
-    texteA: 'Ajouter un <code>;</code> à la fin de la ligne <code>color</code>',
-    texteB: 'Supprimer la ligne <code>font-size</code>',
-    bonneReponse: "A",
-    explication: 'Chaque ligne CSS se termine par un point-virgule <code>;</code>. Sans lui, la ligne suivante ne marche pas.'
+    fichier: "style.css",
+    code: ["h1 {", "  color red;", "  font-size: 30px;", "}"],
+    ligneErreur: 1,
+    correction: "  color: red;",
+    reponseA: "Ajouter <code>:</code> après <code>color</code>",
+    reponseB: "Remplacer <code>h1</code> par <code>.h1</code>",
+    bonne: "A",
+    explication: "En CSS, une propriété s'écrit toujours avec deux-points : color: red;"
   },
-
   {
-    langage: "CSS",
-    chapitre: 2,
+    sousTitre: "SALLE 4 · CSS · CHAPITRE 2",
     titre: "La mise en page, Flexbox",
-    fichier: "salle-4.css",
-    lignes: [
-      '<span class="balise">.menu</span> {',
-      '  display: <span class="orange">flexbox</span>;',
-      '  gap: <span class="rose">16px</span>;',
-      '}'
-    ],
-    ligneErreur: 2,
-    ligneCorrigee: '  display: <span class="vert">flex</span>;',
-    texteA: 'Remplacer <code>gap</code> par <code>margin</code>',
-    texteB: 'Remplacer <code>flexbox</code> par <code>flex</code>',
-    bonneReponse: "B",
-    explication: 'Pour utiliser Flexbox, on écrit <code>display: flex;</code>. Le mot <code>flexbox</code> n\'existe pas en CSS.'
+    fichier: "style.css",
+    code: [".boite {", "  display: flexbox;", "  gap: 10px;", "}"],
+    ligneErreur: 1,
+    correction: "  display: flex;",
+    reponseA: "Remplacer <code>display</code> par <code>position</code>",
+    reponseB: "Remplacer <code>flexbox</code> par <code>flex</code>",
+    bonne: "B",
+    explication: "Pour activer Flexbox, on écrit display: flex; et non flexbox."
   },
-
   {
-    langage: "JavaScript",
-    chapitre: 1,
+    sousTitre: "SALLE 5 · JAVASCRIPT · CHAPITRE 1",
     titre: "Les variables en JS, conditions",
     fichier: "salle-5.js",
-    lignes: [
-      '<span class="violet">let</span> age = <span class="rose">20</span>;',
-      '<span class="violet">if</span> (age <span class="orange">=</span> <span class="rose">18</span>) {',
-      '  console.log(<span class="vert">"Majeur"</span>);',
-      '}'
-    ],
-    ligneErreur: 2,
-    ligneCorrigee: '<span class="violet">if</span> (age <span class="vert">&gt;=</span> <span class="rose">18</span>) {',
-    texteA: 'Remplacer <code>=</code> par <code>&gt;=</code> dans la condition',
-    texteB: 'Supprimer le mot <code>let</code>',
-    bonneReponse: "A",
-    explication: 'Un seul <code>=</code> sert à donner une valeur. Pour comparer, on utilise <code>&gt;=</code>, <code>==</code> ou <code>===</code>.'
+    code: ["let age = 20;", "if (age = 18) {", '  console.log("Majeur");', "}"],
+    ligneErreur: 1,
+    correction: "if (age >= 18) {",
+    reponseA: "Remplacer <code>=</code> par <code>&gt;=</code> dans le <code>if</code>",
+    reponseB: "Remplacer <code>let</code> par <code>int</code>",
+    bonne: "A",
+    explication: "Un seul = donne une valeur à une variable. Pour comparer dans un if, on utilise >=, === ..."
   },
-
   {
-    langage: "JavaScript",
-    chapitre: 2,
+    sousTitre: "SALLE 6 · JAVASCRIPT · CHAPITRE 2",
     titre: "Les fonctions, DOM, événements",
     fichier: "salle-6.js",
-    lignes: [
-      '<span class="violet">function</span> saluer() {',
-      '  alert(<span class="vert">"Salut !"</span>);',
-      '}',
-      'bouton.addEventListener(<span class="vert">"click"</span>, <span class="orange">saluer()</span>);'
-    ],
-    ligneErreur: 4,
-    ligneCorrigee: 'bouton.addEventListener(<span class="vert">"click"</span>, <span class="vert">saluer</span>);',
-    texteA: 'Remplacer <code>"click"</code> par <code>"clic"</code>',
-    texteB: 'Enlever les parenthèses : <code>saluer()</code> devient <code>saluer</code>',
-    bonneReponse: "B",
-    explication: 'Avec les parenthèses, la fonction s\'exécute tout de suite. Sans elles, elle s\'exécute seulement au clic.'
+    code: ["function dire(nom) {", '  console.log("Salut " + nom);', "}", "dire;"],
+    ligneErreur: 3,
+    correction: 'dire("Ali");',
+    reponseA: "Remplacer <code>function</code> par <code>fonction</code>",
+    reponseB: 'Remplacer <code>dire;</code> par <code>dire("Ali");</code>',
+    bonne: "B",
+    explication: "Une fonction s'appelle avec des parenthèses. Sans elles, elle n'est pas exécutée."
   }
-
 ];
 
-
-// ---------- 2. Ce dont le jeu se souvient (change -> let) ----------
-let numeroSalle = 0;       // 0 = salle 1, 1 = salle 2, etc.
-let vies = 3;              // nombre de vies restantes
-let partieFinie = false;   // devient true quand on gagne ou quand on perd
+const consigne = "Trouve l'erreur dans le code, puis choisis la bonne correction pour ouvrir la porte. Attention : une mauvaise réponse te coûte une vie.";
 
 
-// ---------- 3. Les cœurs ----------
-
-function afficherCoeurs() {
-  const forme = '<path d="M12 21 C12 21 3 15 3 9 C3 6 5 4 7.5 4 C9.5 4 11 5 12 6.5 C13 5 14.5 4 16.5 4 C19 4 21 6 21 9 C21 15 12 21 12 21 Z"/>';
-  let html = "";
-
-  for (let i = 1; i <= 3; i++) {
-    if (i <= vies) {
-      // cœur plein
-      html = html + '<svg class="coeur" viewBox="0 0 24 24">' + forme + '</svg>';
-    } else {
-      // cœur vide
-      html = html + '<svg class="coeur coeur-vide" viewBox="0 0 24 24">' + forme + '</svg>';
-    }
-  }
-
-  document.getElementById("coeurs").innerHTML = html;
-  document.getElementById("vies-nombre").innerHTML = vies + " sur 3";
-}
+// ===== 2. LES VARIABLES DU JEU =====
+let numeroSalle = 0;     // 0 = salle 1, 1 = salle 2, ...
+let vies = 3;
+let termine = false;     // true quand la salle est gagnée ou perdue
 
 
-// ---------- 4. Le code à corriger ----------
+// ===== 3. ON RÉCUPÈRE LES ÉLÉMENTS DE LA PAGE =====
+const sousTitre = document.getElementById("sous-titre-salle");
+const titreSalle = document.getElementById("titre-salle");
+const nomFichier = document.getElementById("nom-fichier");
+const zoneCode = document.getElementById("code");
+const textVies = document.getElementById("vies-texte");
+const coeurs = document.querySelectorAll(".coeur");
+const porte = document.getElementById("porte");
+const etatPorte = document.getElementById("etat-porte");
+const message = document.getElementById("message");
+const messageTitre = document.getElementById("message-titre");
+const messageTexte = document.getElementById("message-texte");
+const boutonA = document.getElementById("reponse-a");
+const boutonB = document.getElementById("reponse-b");
+const boutonRecommencer = document.getElementById("btn-recommencer");
+const boutonSuivant = document.getElementById("btn-suivant");
 
-// Écrit les lignes de code dans la fenêtre
-// corrige = true  -> la ligne de l'erreur est montrée corrigée (en vert)
-// corrige = false -> la ligne de l'erreur est montrée avec l'erreur
+
+// ===== 4. LES FONCTIONS =====
+
+// Dessine le code à l'écran (corrige = true : la ligne fautive est réparée)
 function afficherCode(corrige) {
   const salle = salles[numeroSalle];
-  let html = "";
+  zoneCode.innerHTML = "";                       // on vide l'ancien code
 
-  for (let i = 0; i < salle.lignes.length; i++) {
-    const numero = i + 1;
-    let texte = salle.lignes[i];
-    let classe = "ligne";
-    let etiquette = "";
+  for (let i = 0; i < salle.code.length; i++) {
+    const ligne = document.createElement("p");   // on crée un <p>
+    let texte = salle.code[i];
 
-    // Est-ce la ligne qui contient l'erreur ?
-    if (numero == salle.ligneErreur) {
-      if (corrige == true) {
-        classe = "ligne ligne-corrigee";
-        texte = salle.ligneCorrigee;
-        etiquette = '<span class="etiquette etiquette-verte">CORRIGÉ</span>';
+    if (i === salle.ligneErreur && corrige) {
+      texte = salle.correction;
+    }
+    ligne.textContent = (i + 1) + "  " + texte + " ";
+
+    if (i === salle.ligneErreur) {
+      const etiquette = document.createElement("span");
+      if (corrige) {
+        ligne.className = "corrige";
+        etiquette.className = "etiquette vert";
+        etiquette.textContent = "CORRIGÉ";
       } else {
-        classe = "ligne ligne-erreur";
-        etiquette = '<span class="etiquette">ERREUR</span>';
+        ligne.className = "erreur";
+        etiquette.className = "etiquette";
+        etiquette.textContent = "ERREUR";
       }
+      ligne.appendChild(etiquette);              // on met l'étiquette dans la ligne
     }
 
-    html = html + '<div class="' + classe + '">' +
-      '<span class="numero">' + numero + '</span>' +
-      '<span class="ligne-texte">' + texte + '</span>' +
-      etiquette +
-      '</div>';
-  }
-
-  document.getElementById("code").innerHTML = html;
-}
-
-
-// ---------- 5. La porte, le cadenas et le message ----------
-
-// ouverte = true -> porte ouverte, sinon porte verrouillée
-function afficherPorte(ouverte) {
-  if (ouverte == true) {
-    document.getElementById("porte-fermee").style.display = "none";
-    document.getElementById("porte-ouverte").style.display = "block";
-    document.getElementById("porte-texte").innerHTML = "Porte ouverte";
-    document.getElementById("porte-texte").style.color = "#86efac";
-  } else {
-    document.getElementById("porte-fermee").style.display = "block";
-    document.getElementById("porte-ouverte").style.display = "none";
-    document.getElementById("porte-texte").innerHTML = "Porte verrouillée";
-    document.getElementById("porte-texte").style.color = "#e8eaff";
-    document.getElementById("porte-rond").setAttribute("fill", "#f5b02e");
-    document.getElementById("anse").classList.remove("anse-ouverte");
+    zoneCode.appendChild(ligne);                 // on met la ligne dans le bloc de code
   }
 }
 
-// Ouvre le cadenas (bonne réponse) : l'anse se lève
-function ouvrirCadenas() {
-  document.getElementById("anse").classList.add("anse-ouverte");
-  document.getElementById("porte-texte").innerHTML = "Cadenas ouvert";
-  document.getElementById("porte-texte").style.color = "#86efac";
-}
-
-// Ouvre la porte, affiche le message de victoire et le bouton "Salle suivante"
-function ouvrirPorte() {
-  // Si on a cliqué sur "Recommencer" entre-temps, on ne fait rien
-  if (partieFinie == false) {
-    return;
+// Allume ou éteint les cœurs selon le nombre de vies
+function afficherVies() {
+  for (let i = 0; i < coeurs.length; i++) {
+    if (i < vies) {
+      coeurs[i].classList.remove("perdu");
+    } else {
+      coeurs[i].classList.add("perdu");
+    }
   }
-
-  const salle = salles[numeroSalle];
-  afficherPorte(true);
-
-  if (numeroSalle == salles.length - 1) {
-    afficherMessage("Bravo, toutes les portes sont ouvertes !", salle.explication + " Tu as terminé les 6 salles.", "vert");
-  } else {
-    afficherMessage("Bravo, la porte s'ouvre !", salle.explication + " Tu passes à la salle suivante.", "vert");
-  }
-
-  document.getElementById("bouton-suivant").style.display = "block";
+  textVies.textContent = vies + " sur 3";
 }
 
-// Fait vibrer le cadenas (mauvaise réponse)
-function faireVibrerCadenas() {
-  const cadenas = document.getElementById("cadenas");
-
-  // On enlève la classe, puis on la remet : ça relance l'animation à chaque erreur
-  cadenas.classList.remove("vibre");
-  cadenas.getBoundingClientRect();
-  cadenas.classList.add("vibre");
-}
-
-// Change le message sous la porte
-// couleur peut être "" (bleu), "vert" ou "rouge"
-function afficherMessage(titre, texte, couleur) {
-  const boite = document.getElementById("message");
-
-  boite.className = "message";
-  if (couleur == "vert") {
-    boite.className = "message message-vert";
-  }
-  if (couleur == "rouge") {
-    boite.className = "message message-rouge";
-  }
-
-  document.getElementById("message-titre").innerHTML = titre;
-  document.getElementById("message-texte").innerHTML = texte;
-}
-
-
-// ---------- 6. Les boutons de réponse ----------
-
-// Remet UN bouton (A ou B) à zéro : couleur normale, cliquable, sans signe
-function remettreBouton(lettre) {
-  document.getElementById("bouton-" + lettre).className = "reponse";
-  document.getElementById("bouton-" + lettre).disabled = false;
-  document.getElementById("signe-" + lettre).innerHTML = "";
-}
-
-// Bloque les deux boutons
-function bloquerBoutons() {
-  document.getElementById("bouton-A").disabled = true;
-  document.getElementById("bouton-B").disabled = true;
-}
-
-// Donne l'autre lettre : A -> B et B -> A
-function autreLettre(lettre) {
-  if (lettre == "A") {
-    return "B";
-  }
-  return "A";
-}
-
-
-// ---------- 7. Afficher une salle ----------
-
-// Appelée au début de chaque salle et quand on clique sur "Recommencer"
+// Prépare l'écran pour la salle courante
 function afficherSalle() {
   const salle = salles[numeroSalle];
-
-  // On redonne 3 vies et on remet la partie en route
   vies = 3;
-  partieFinie = false;
+  termine = false;
 
-  // Titre du bandeau
-  document.getElementById("salle-info").textContent = code ;
-    "SALLE " + (numeroSalle + 1) + " · " + salle.langage.toUpperCase() + " · CHAPITRE " + salle.chapitre;
-  document.getElementById("salle-titre").innerHTML = salle.titre;
-  document.getElementById("nom-fichier").innerHTML = salle.fichier;
+  sousTitre.textContent = salle.sousTitre;
+  titreSalle.textContent = salle.titre;
+  nomFichier.textContent = salle.fichier;
 
-  // Cœurs, code, porte, message
-  afficherCoeurs();
+  boutonA.innerHTML = '<span class="lettre">A</span><span>' + salle.reponseA + '</span>';
+  boutonB.innerHTML = '<span class="lettre">B</span><span>' + salle.reponseB + '</span>';
+  boutonA.className = "reponse";
+  boutonB.className = "reponse";
+  boutonA.disabled = false;
+  boutonB.disabled = false;
+
+  porte.className = "porte";
+  porte.textContent = "🔒";
+  etatPorte.textContent = "Porte verrouillée";
+
+  message.className = "message";
+  messageTitre.textContent = "Ta mission";
+  messageTexte.textContent = consigne;
+
+  boutonSuivant.hidden = true;
+
   afficherCode(false);
-  afficherPorte(false);
-  afficherMessage(
-    "Ta mission",
-    "Trouve l'erreur dans le code, puis choisis la bonne correction pour ouvrir la porte. Attention : une mauvaise réponse te coûte une vie.",
-    ""
-  );
-
-  // Réponses A et B
-  document.getElementById("texte-A").innerHTML = salle.texteA;
-  document.getElementById("texte-B").innerHTML = salle.texteB;
-  remettreBouton("A");
-  remettreBouton("B");
-
-  // Boutons du bas
-  document.getElementById("bouton-suivant").style.display = "none";
-  document.getElementById("bouton-recommencer").className = "bouton-recommencer";
-
-  // Dernière salle : le bouton change de nom
-  if (numeroSalle == salles.length - 1) {
-    document.getElementById("bouton-suivant").innerHTML = "Terminer →";
-  } else {
-    document.getElementById("bouton-suivant").innerHTML = "Salle suivante →";
-  }
+  afficherVies();
 }
-
-
-// ---------- 8. Fonctions appelées par les boutons ----------
 
 // Appelée quand on clique sur A ou B
 function choisir(lettre) {
-
-  // Si la partie est finie, on ne fait rien
-  if (partieFinie == true) {
-    return;
+  if (termine) {
+    return;                                      // la salle est finie : on ne fait rien
   }
 
   const salle = salles[numeroSalle];
+  let bouton = boutonB;
+  if (lettre === "A") {
+    bouton = boutonA;
+  }
 
-  if (lettre == salle.bonneReponse) {
-
+  if (lettre === salle.bonne) {
     // ----- BONNE RÉPONSE -----
-    partieFinie = true;
+    termine = true;
+    bouton.classList.add("bonne");
+    boutonA.disabled = true;
+    boutonB.disabled = true;
 
-    document.getElementById("bouton-" + lettre).className = "reponse reponse-juste";
-    document.getElementById("signe-" + lettre).innerHTML = "✓";
-    document.getElementById("bouton-" + autreLettre(lettre)).className = "reponse reponse-grise";
-    bloquerBoutons();
+    porte.classList.add("ouverte");
+    porte.textContent = "🔓";
+    etatPorte.textContent = "Porte ouverte";
+
+    message.classList.add("succes");
+    messageTitre.textContent = "Bravo, la porte s'ouvre !";
+    messageTexte.textContent = salle.explication;
 
     afficherCode(true);
 
-    // 1) le cadenas s'ouvre tout de suite
-    ouvrirCadenas();
-
-    // 2) 0,8 seconde plus tard, la porte s'ouvre
-    setTimeout(ouvrirPorte, 800);
+    if (numeroSalle < salles.length - 1) {
+      messageTexte.textContent = salle.explication + " Tu passes à la salle suivante.";
+      boutonSuivant.hidden = false;
+    } else {
+      messageTitre.textContent = "Bravo, tu as ouvert les 6 portes !";
+    }
 
   } else {
-
     // ----- MAUVAISE RÉPONSE -----
     vies = vies - 1;
-    afficherCoeurs();
-    faireVibrerCadenas();
+    bouton.classList.add("mauvaise");
+    afficherVies();
 
-    document.getElementById("bouton-" + lettre).className = "reponse reponse-fausse";
-    document.getElementById("signe-" + lettre).innerHTML = "✕";
-
-    if (vies == 0) {
-      // Plus de vie : c'est perdu
-      partieFinie = true;
-      document.getElementById("bouton-" + autreLettre(lettre)).className = "reponse reponse-grise";
-      bloquerBoutons();
-
-      afficherMessage(
-        "Plus aucune vie !",
-        "La porte reste fermée. Relis le cours sur « " + salle.titre + " », puis recommence la salle.",
-        "rouge"
-      );
-      document.getElementById("bouton-recommencer").className = "bouton-recommencer recommencer-dore";
-
-      // La porte devient rose
-      document.getElementById("porte-rond").setAttribute("fill", "#ff7b8f");
-      document.getElementById("porte-texte").style.color = "#ff7b8f";
-
+    if (vies === 0) {
+      termine = true;
+      boutonA.disabled = true;
+      boutonB.disabled = true;
+      message.classList.add("echec");
+      messageTitre.textContent = "Plus aucune vie !";
+      messageTexte.textContent = "La porte reste fermée. Relis le cours, puis recommence la salle.";
     } else {
-      // Il reste des vies
-      afficherMessage(
-        "Mauvaise réponse",
-        "Tu perds une vie. Il t'en reste " + vies + ". Regarde bien la ligne en surbrillance.",
-        "rouge"
-      );
+      messageTitre.textContent = "Mauvaise réponse";
+      messageTexte.textContent = "Il te reste " + vies + " vie(s). Essaie encore !";
     }
   }
 }
 
-// Bouton "Recommencer" : on refait la même salle
-function recommencer() {
+
+// ===== 5. LES ÉVÉNEMENTS : que faire quand on clique ? =====
+boutonA.addEventListener("click", function () {
+  choisir("A");
+});
+
+boutonB.addEventListener("click", function () {
+  choisir("B");
+});
+
+boutonRecommencer.addEventListener("click", afficherSalle);
+
+boutonSuivant.addEventListener("click", function () {
+  numeroSalle = numeroSalle + 1;
   afficherSalle();
-}
-
-// Bouton "Salle suivante"
-function salleSuivante() {
-  if (numeroSalle == salles.length - 1) {
-    // C'était la dernière salle : retour à l'accueil
-    window.location.href = "index.html";
-  } else {
-    numeroSalle = numeroSalle + 1;
-    afficherSalle();
-    window.scrollTo(0, 0);
-  }
-}
+});
 
 
-// ---------- 9. Démarrage de la page ----------
-
-// On regarde si l'adresse contient ?salle=3 (par exemple)
-const adresse = new URLSearchParams(window.location.search);
-const salleDemandee = parseInt(adresse.get("salle"));
-
-if (salleDemandee >= 1 && salleDemandee <= salles.length) {
-  numeroSalle = salleDemandee - 1;
-}
-
+// ===== 6. ON DÉMARRE =====
 afficherSalle();
-
