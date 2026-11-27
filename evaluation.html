@@ -1,194 +1,195 @@
-<!DOCTYPE html>
+a<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Choisis ton niveau · BugEscape</title>
-  <link rel="stylesheet" href="style - niveau.css">
-  
+  <title>Évaluation - BugEscape</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="evaluation.css">
+   <script src="script.js">defer </script>
 </head>
+
 <body>
 
-  <!--  En-tête -->
   <header class="entete">
-    
-    <a href="index.html" class="logo" aria-label="BugEscape, accueil">
-      <svg viewBox="0 0 44 44" aria-hidden="true">
-        <rect width="44" height="44" rx="11" fill="#4338ca"/>
-        <path d="M17 14l-8 8 8 8M27 14l8 8-8 8" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M24 12l-4 20" stroke="#f5b02e" stroke-width="3.2" stroke-linecap="round"/>
-      </svg>
+
+    <a href="index.html" class="logo">
+      <div class="logo-carre">&lt;/&gt;</div>
       <div>
         <div class="logo-nom">Bug<span>Escape</span></div>
         <div class="logo-slogan">Trouve l'erreur. Ouvre la porte.</div>
       </div>
     </a>
-    <nav class="menu" aria-label="Navigation principale">
+
+    <nav class="menu">
       <a href="index.html">Accueil</a>
-      <a href="niveau.html" class="actif" aria-current="page">Niveau</a>
+      <a href="niveau.html">Niveau</a>
       <a href="cours.html">Cours</a>
-      <a href="evaluation.html">Évaluation</a>
+      <a href="evaluation.html" class="page-actuelle">Évaluation</a>
     </nav>
+
   </header>
 
-  <main>
-    <!-- Titre de la page et repères -->
-    <section class="titre-page">
-      <div class="conteneur">
-        <div class="titre-texte">
-          <p class="etape">Étape 1 sur 3 · Ton point de départ</p>
-          <h1>Choisis ton <span>niveau</span></h1>
-          <p>Deux chemins, une seule mission : sortir de la salle. Dis-nous d'où tu pars, et le parcours s'adapte à ta réponse.</p>
+  <section class="bandeau">
+    <div class="contenu bandeau-ligne">
+
+      <div>
+        <p class="salle-info" id="salle-info">SALLE 1 · HTML · CHAPITRE 1</p>
+        <h1 id="salle-titre">La structure de base</h1>
+      </div>
+
+      <div class="vies">
+        <div>
+          <p class="vies-mot">VIES</p>
+          <p class="vies-nombre" id="vies-nombre">3 sur 3</p>
         </div>
-        <div class="reperes">
-          <div class="repere"><strong>6</strong><span>salles à ouvrir</span></div>
-          <div class="repere"><strong>3</strong><span>langages : HTML, CSS, JS</span></div>
-          <div class="repere"><strong>1</strong><span>mission : trouver l'erreur</span></div>
+        <div class="coeurs" id="coeurs">
         </div>
       </div>
-    </section>
 
-    <!--  Cartes de niveau et conseil -->
-    <section class="choix">
-      <div class="conteneur">
-        <div class="cartes">
+    </div>
+  </section>
 
-          <article class="carte carte-debutant">
-            <div class="carte-icone">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            </div>
-            <p class="carte-niveau">Débutant</p>
-            <h2>Je découvre le code</h2>
-            <p class="carte-intro">Je suis un cours en petits modules, avec un mini quiz à la fin de chacun.</p>
-            <ul class="points">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>HTML, puis CSS, puis JavaScript</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Des petits modules faciles à suivre</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Un mini quiz à la fin de chaque module</li>
-            </ul>
-            <a href="cours.html" class="bouton bouton-indigo">
-              Commencer par les cours
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </a>
-          </article>
+  <main class="contenu zone-jeu">
 
-          <article class="carte carte-inter">
-            <div class="carte-icone">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 7.5-2"/></svg>
-            </div>
-            <p class="carte-niveau">Intermédiaire</p>
-            <h2>Je connais les bases</h2>
-            <p class="carte-intro">Je choisis de réviser ou d'aller directement aux énigmes (quiz).</p>
-            <ul class="points">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Réviser les cours si tu en as besoin</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Ou foncer directement aux énigmes</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Un quiz, puis un code erroné à déboguer</li>
-            </ul>
-            <a href="evaluation.html" class="bouton bouton-or">
-              Relever les énigmes
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </a>
-          </article>
+    <div class="haut">
 
+      <div class="fenetre-code">
+        <div class="fenetre-barre">
+          <span class="rond"></span>
+          <span class="rond"></span>
+          <span class="rond"></span>
+          <span class="nom-fichier" id="nom-fichier">salle-1.html</span>
+          <span class="titre-code">LE CODE À CORRIGER</span>
         </div>
 
-        <aside class="conseil">
-          <div class="conseil-icone">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5A6 6 0 0 0 12 3z"/></svg>
-          </div>
-          <div>
-            <strong>Conseil : pas sûr ? Commence par Débutant.</strong>
-            <p>Tu avances petit module par petit module et tu repars avec les bases avant d'affronter les énigmes.</p>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <!-- Parcours selon le niveau -->
-    <section class="parcours">
-      <div class="conteneur">
-        <h2>Ton parcours selon ton niveau</h2>
-
-        <div class="ligne-parcours ligne-debutant">
-          <p class="parcours-niveau">Débutant</p>
-          <ol class="etapes">
-            <li class="cours">Cours HTML</li><li class="fleche" aria-hidden="true">→</li>
-            <li class="quiz">Mini quiz</li><li class="fleche" aria-hidden="true">→</li>
-            <li class="cours">Cours CSS</li><li class="fleche" aria-hidden="true">→</li>
-            <li class="quiz">Mini quiz</li><li class="fleche" aria-hidden="true">→</li>
-            <li class="cours">Cours JavaScript</li><li class="fleche" aria-hidden="true">→</li>
-            <li class="quiz">Mini quiz</li><li class="fleche" aria-hidden="true">→</li>
-            <li class="final">Ton niveau en HTML, CSS et JS</li>
-          </ol>
-        </div>
-
-        <div class="ligne-parcours ligne-inter">
-          <p class="parcours-niveau">Intermédiaire</p>
-          <ol class="etapes">
-            <li class="cours">Révision au choix</li><li class="fleche" aria-hidden="true">→</li>
-            <li class="quiz">Énigmes (quiz)</li><li class="fleche" aria-hidden="true">→</li>
-            <li class="quiz">Code à déboguer</li><li class="fleche" aria-hidden="true">→</li>
-            <li class="final">Ton niveau en HTML, CSS et JS</li>
-          </ol>
+        <div id="code">
         </div>
       </div>
-    </section>
+
+      <div class="colonne-droite">
+
+        <div class="boite-porte">
+
+          <svg id="porte-fermee" width="140" height="160" viewBox="0 0 140 160">
+            <path d="M5 160 V65 A65 65 0 0 1 135 65 V160 Z" fill="#2a2c63"/>
+            <path d="M15 160 V65 A55 55 0 0 1 125 65 V160 Z" fill="#4338ca"/>
+            <path d="M28 160 V68 A42 42 0 0 1 112 68 V160" fill="none" stroke="#6d63e0" stroke-width="2"/>
+            <g id="cadenas">
+              <circle cx="70" cy="88" r="17" fill="#f5b02e" id="porte-rond"/>
+              <rect x="62" y="86" width="16" height="13" rx="2" fill="#14152e"/>
+              <path id="anse" d="M65 86 V82 A5 5 0 0 1 75 82 V86" fill="none" stroke="#14152e" stroke-width="3"/>
+            </g>
+            <circle cx="113" cy="120" r="4" fill="#f5b02e"/>
+          </svg>
+
+          <svg id="porte-ouverte" width="140" height="160" viewBox="0 0 140 160" style="display:none">
+            <path d="M5 160 V65 A65 65 0 0 1 135 65 V160 Z" fill="#2a2c63"/>
+            <path d="M15 160 V65 A55 55 0 0 1 125 65 V160 Z" fill="#f5b02e"/>
+            <path id="battant" d="M15 160 V65 A55 55 0 0 1 60 12 V150 Z" fill="#4338ca"/>
+            <circle cx="50" cy="95" r="4" fill="#f5b02e"/>
+            <path d="M85 88 H112 M102 78 L112 88 L102 98" fill="none" stroke="#14152e" stroke-width="4"/>
+          </svg>
+
+          <p class="porte-texte" id="porte-texte">Porte verrouillée</p>
+        </div>
+
+        <div class="message" id="message">
+          <p class="message-titre" id="message-titre">Ta mission</p>
+          <p class="message-texte" id="message-texte">Trouve l'erreur dans le code, puis choisis la bonne correction pour ouvrir la porte. Attention : une mauvaise réponse te coûte une vie.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="boite-reponses">
+      <p class="reponses-titre">LES RÉPONSES · CHOISIS LA BONNE CORRECTION</p>
+
+      <div class="reponses">
+        <button class="reponse" id="bouton-A" onclick="choisir('A')">
+          <span class="lettre">A</span>
+          <span class="reponse-texte" id="texte-A"></span>
+          <span class="signe" id="signe-A"></span>
+        </button>
+
+        <button class="reponse" id="bouton-B" onclick="choisir('B')">
+          <span class="lettre">B</span>
+          <span class="reponse-texte" id="texte-B"></span>
+          <span class="signe" id="signe-B"></span>
+        </button>
+      </div>
+
+      <div class="boutons-bas">
+        <button class="bouton-recommencer" id="bouton-recommencer" onclick="recommencer()">↺ Recommencer</button>
+        <button class="bouton-suivant" id="bouton-suivant" onclick="salleSuivante()" style="display:none">Salle suivante →</button>
+      </div>
+    </div>
+
   </main>
 
-  <!-- Pied de page -->
   <footer class="pied">
-    <div class="conteneur">
+    <div class="contenu">
+
       <div class="pied-haut">
+
         <div class="pied-marque">
           <a href="index.html" class="logo">
-            <svg viewBox="0 0 44 44" aria-hidden="true">
-              <rect width="44" height="44" rx="11" fill="#4338ca"/>
-              <path d="M17 14l-8 8 8 8M27 14l8 8-8 8" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M24 12l-4 20" stroke="#f5b02e" stroke-width="3.2" stroke-linecap="round"/>
-            </svg>
-            <div class="logo-nom">Bug<span>Escape</span></div>
+            <div class="logo-carre">&lt;/&gt;</div>
+            <div class="logo-nom blanc">Bug<span>Escape</span></div>
           </a>
-          <strong>Trouve l'erreur. Ouvre la porte.</strong>
-          <p>Un jeu d'évasion pour apprendre HTML, CSS et JavaScript en corrigeant du vrai code.</p>
-          <div class="badges"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+          <p class="pied-slogan">Trouve l'erreur. Ouvre la porte.</p>
+          <p class="pied-texte">Un jeu d'évasion pour apprendre HTML, CSS et JavaScript en corrigeant du vrai code.</p>
+          <div class="pastilles">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+          </div>
         </div>
 
-        <nav class="pied-nav" aria-label="Navigation du pied de page">
-          <h3>Navigation</h3>
+        <div class="pied-navigation">
+          <p class="pied-titre">NAVIGATION</p>
           <a href="index.html">Accueil</a>
           <a href="niveau.html">Niveau</a>
           <a href="cours.html">Cours</a>
           <a href="evaluation.html">Évaluation</a>
-        </nav>
+        </div>
 
         <div class="pied-contact">
-          <h3>Contact</h3>
-          <div class="contacts">
-            <div class="contact-carte">
-              <strong>Roïdou Elemmon</strong>
-               <a href="mailto:elemonroidou465@gmail.com">✉ elemonroidou465@gmail.com</a>
+          <p class="pied-titre">CONTACT</p>
+
+          <div class="cartes">
+            <div class="carte">
+              <h4>Roïdou Elemmon</h4>
+             <a href="mailto:elemonroidou465@gmail.com">✉ elemonroidou465@gmail.com</a>
               <a href="https://wa.me/22942891243"
                 >💬 WhatsApp : 22942891243</a>
             </div>
-            <div class="contact-carte">
-              <strong>Pascal Alihonou</strong>
+
+            <div class="carte">
+              <h4>Pascal Alihonou</h4>
               <a href="mailto:pascalcharo335@gmail.com">✉ pascalcharo335@gmail.com</a>
               <a href="https://wa.me/22955789122"
-                >💬 WhatsApp : 22955789122</a>
+                >💬 WhatsApp : 22955789122</a
+              >
             </div>
           </div>
-          <a href="#" class="source">
-            <svg class="pic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4 1.5-4-2-6-2.5M15 21v-3.5c0-1 .1-1.600-.5-2.500 3-.3 6-1.500 6-6.500a5 5 0 0 0-1.400-3.500 4.600 4.600 0 0 0-.1-3.500s-1.100-.3-3.500 1.300a12 12 0 0 0-6.200 0C6.900 2.700 5.800 3 5.800 3a4.600 4.600 0 0 0-.1 3.500A5 5 0 0 0 4.300 10c0 5 3 6.200 6 6.500-.6.900-.6 1.700-.5 2.500V21"/></svg>
-            Code source : [lien du dépôt GitHub]
-          </a>
+
+          <a href="#" class="lien-code">Code source : [lien du dépôt GitHub]</a>
         </div>
+
       </div>
 
       <div class="pied-bas">
-        <span>© 2026 BugEscape · Réalisé par <b>Roïdou Elemmon</b> et <b>Pascal Alihonou</b></span>
-        <span>Projet fait en HTML, CSS et JavaScript, sans serveur.</span>
+        <p>© 2026 BugEscape · Réalisé par <b>Roïdou Elemmon</b> et <b>Pascal Alihonou</b></p>
+        <p>Projet fait en HTML, CSS et JavaScript, sans serveur.</p>
       </div>
+
     </div>
   </footer>
+
+ 
 
 </body>
 </html>
